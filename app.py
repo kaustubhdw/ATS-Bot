@@ -72,17 +72,23 @@ async def button(update: Update, context: ContextTypes.DEFAULT_TYPE):
         context.user_data['mode'] = 'waiting_for_jd'
         keyboard = [[InlineKeyboardButton("🔄 Restart (Start Fresh)", callback_data='restart')]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        await query.message.edit_text("✏️ Please send the job description text.", reply_markup=reply_markup)
+        await query.edit_message_text("✏️ Please send the job description text.", reply_markup=reply_markup)
 
     elif query.data == 'upload_resume':
         context.user_data['mode'] = 'resume_only'
         keyboard = [[InlineKeyboardButton("🔄 Restart (Start Fresh)", callback_data='restart')]]
         reply_markup = InlineKeyboardMarkup(keyboard)
-        await query.message.edit_text("📤 Please upload your resume (PDF or DOCX).", reply_markup=reply_markup)
+        await query.edit_message_text("📤 Please upload your resume (PDF or DOCX).", reply_markup=reply_markup)
 
     elif query.data == 'restart':
         context.user_data.clear()
-        await start(update, context)
+        keyboard = [
+            [InlineKeyboardButton("📝 Provide Job Description", callback_data='provide_jd')],
+            [InlineKeyboardButton("📄 Upload Resume Only", callback_data='upload_resume')],
+            [InlineKeyboardButton("🔄 Restart (Start Fresh)", callback_data='restart')]
+        ]
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        await query.edit_message_text("👋 Restarted! Please choose an option:", reply_markup=reply_markup)
 
 async def handle_document(update: Update, context: ContextTypes.DEFAULT_TYPE):
     file = await update.message.document.get_file()
@@ -198,4 +204,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
