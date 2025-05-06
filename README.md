@@ -24,8 +24,8 @@
 
 1️⃣ **Clone the repository**
 ```
-git clone https://github.com/kaustubhdww/atsbot.git
-cd atsbot
+git clone https://github.com/kaustubhdww/ats-bot.git
+cd ats-bot
 ```
 
 2️⃣ **Create a `.env` file** (in the project root):
@@ -41,14 +41,14 @@ pip install -r requirements.txt
 
 4️⃣ **Run the bot**
 ```
-python your_bot_script.py
+python app.py
 ```
 
 ---
 
 ## 📂 Project Structure
 
-- `bot.py` → Main Telegram bot logic.
+- `app.py` → Main Telegram bot logic.
 - `downloads/` → Temporary storage for uploaded resumes.
 - `.env` → Stores API keys (not committed to GitHub).
 - `requirements.txt` → Python dependencies.
