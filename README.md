@@ -4,6 +4,7 @@
 ## 📄 Overview
 
 **ATSBot** is a Telegram bot that:
+
 ✅ Analyzes resumes (PDF/DOCX) against job descriptions using Google Gemini API.  
 ✅ Provides ATS (Applicant Tracking System) match scores, missing keywords, strengths, weaknesses, and improvement tips.  
 ✅ Generates professional cover letters tailored to your resume and job description.
